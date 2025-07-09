@@ -11,7 +11,8 @@ INNER JOIN User ON Book.user_id = User.user_id;
 
 SELECT Property.name, Review.rating, Review.comment
 FROM Property
-LEFT JOIN Review ON Property.property_id = Review.property_id;
+LEFT JOIN Review ON Property.property_id = Review.property_id
+ORDER BY Review.rating DESC;
 
 -- Write a query using a FULL OUTER JOIN to retrieve all users
 -- and all bookings, even if the user has no booking or a

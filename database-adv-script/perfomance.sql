@@ -3,6 +3,7 @@
 --  initial query that retrieves all bookings along with the
 -- user details, property details, and payment details
 
+EXPLAIN
 SELECT
     b.booking_id,
     u.first_name,
@@ -14,9 +15,13 @@ FROM Booking b
 INNER JOIN User u ON b.user_id = u.user_id
 INNER JOIN Property p ON b.property_id = p.property_id
 INNER JOIN Payment pay ON b.booking_id = pay.booking_id
+WHERE b.status = 'confirmed'
+    AND b.start_date >= '2023-01-01'
+
 
 -- Optimized Query
 
+-- EXPLAIN
 -- SELECT
 --     b.booking_id,
 --     u.first_name,
